@@ -26,6 +26,12 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+protected:
+	void LookAtTarget(FVector LookAt);
+
+	UPROPERTY(EditDefaultsOnly)
+	float TurretRotatingRate = 5.f;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class UCapsuleComponent* CapsuleComponent;

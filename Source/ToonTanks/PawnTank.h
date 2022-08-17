@@ -23,6 +23,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+protected:
+	virtual void BeginPlay() override;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class USpringArmComponent* SpringArmComponent;
@@ -35,4 +38,6 @@ private:
 
 	void MoveForward(float Value);
 	void Turn(float Value);
+
+	class APlayerController* PlayerController;
 };
