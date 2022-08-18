@@ -29,6 +29,9 @@ private:
 
 	bool bTankInFireRange() const;
 	float GetDistanceFromTank() const;
+	void CheckFireCondition();
 	
 	class APawnTank* Tank;
+	float FireRate = 2.f;
+	FTimerHandle FireRateTimerHandle;
 };

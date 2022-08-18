@@ -44,6 +44,7 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &APawnTank::MoveForward);
 	PlayerInputComponent->BindAxis("Turn", this, &APawnTank::Turn);
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &APawnTank::Fire);
 }
 
 void APawnTank::MoveForward(float Value)

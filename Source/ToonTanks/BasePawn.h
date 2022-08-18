@@ -28,6 +28,7 @@ public:
 
 protected:
 	void LookAtTarget(FVector LookAt);
+	void Fire();
 
 	UPROPERTY(EditDefaultsOnly)
 	float TurretRotatingRate = 5.f;
@@ -41,4 +42,6 @@ private:
 	class UStaticMeshComponent* TurretMesh;
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* SpawnProjectilePoint;
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TSubclassOf<class AProjectile> ProjectileClass; 
 };

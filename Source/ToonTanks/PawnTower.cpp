@@ -16,6 +16,8 @@ void APawnTower::BeginPlay()
 	Super::BeginPlay();
 
 	Tank = Cast<APawnTank>(UGameplayStatics::GetPlayerPawn(this, 0));
+
+	GetWorldTimerManager().SetTimer(FireRateTimerHandle, this, &APawnTower::CheckFireCondition, FireRate, true);
 }
 
 void APawnTower::Tick(float DeltaSeconds)
@@ -40,4 +42,12 @@ float APawnTower::GetDistanceFromTank() const
 		return (Tank->GetActorLocation() - GetActorLocation()).Length();
 	}
 	return TNumericLimits<float>::Max();
+}
+
+void APawnTower::CheckFireCondition()
+{
+	if(bTankInFireRange())
+	{
+		Fire();
+	}
 }
